@@ -1,4 +1,11 @@
 Modsfortowns::Application.routes.draw do
+  resources :users
+  resource :session, only: [:new, :create, :destroy]
+  get 'signup' => 'users#new', as: :signup
+  post 'register' => 'users#create', as: :register
+  get 'login' => 'sessions#new', as: :login
+  get 'logout' => 'sessions#destroy', as: :logout
+  get '/activate/:activation_code' => 'users#activate', as: :activate, activation_code: nil
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -39,7 +46,7 @@ Modsfortowns::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
