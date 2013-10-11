@@ -1,3 +1,5 @@
 ==Readme for modsfortowns
 
 We need a readme here explaining how to use the API. How to submit patches (commits) and how to get the app up and running.
+
+Some comments about testing style should go in the secion about submitting patches.

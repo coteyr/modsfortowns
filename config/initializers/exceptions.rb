@@ -14,7 +14,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with coteyr_pack.  If not, see <http://www.gnu.org/licenses/>.
 
-APPLICATION_NAME_HERE::Application.config.middleware.use ExceptionNotifier,
+Modsfortowns::Application.config.middleware.use ExceptionNotifier,
     email_prefix: "[EXCEPTION][APP NAME] ",
     project_name: "Project",
     project_tracker: "Exceptions",
