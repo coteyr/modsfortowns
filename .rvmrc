@@ -16,7 +16,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with coteyr_pack.  If not, see <http://www.gnu.org/licenses/>.
 
-GEMSET="ruby-1.9.3-p194@rails3.2.6"
+GEMSET="ruby-2.0.0-p195@rails4"
 
 
 if [[ -d "${rvm_path:-$HOME/.rvm}/environments" \
