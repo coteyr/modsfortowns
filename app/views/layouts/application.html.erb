@@ -1,14 +1,46 @@
+<% # Copyright (c) 2010 by Robert D. Cotey II
+   #    This file is part of coteyr_pack.
+   #
+   #    coteyr_pack is free software: you can redistribute it and/or modify
+   #    it under the terms of the GNU General Public License as published by
+   #    the Free Software Foundation, either version 3 of the License, or
+   #    (at your option) any later version.
+   #
+   #    coteyr_pack is distributed in the hope that it will be useful,
+   #    but WITHOUT ANY WARRANTY; without even the implied warranty of
+   #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   #    GNU General Public License for more details.
+   #
+   #    You should have received a copy of the GNU General Public License
+   #    along with coteyr_pack.  If not, see <http://www.gnu.org/licenses/>.
+-%>
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Modsfortowns</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+<% @FLASH_NAMES = [:danger, :success, :warning, :info] %>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <%= csrf_meta_tag %>
+    <%= javascript_include_tag :application %>
+    <%= stylesheet_link_tag(:application) %>
+  </head>
+  <body>
+    <%= render partial: 'layouts/top_nav' %>
+    <%= render partial: 'layouts/notices' %>
+    <div class="wrapper">
+      <div class="sidebar">
+        <%= render partial: 'layouts/main_navagation' %>
+        <% if content_for?(:sidebar) %>
+          <%= yield(:sidebar) %>
+        <% end %>
+      </div>
+    </div>
+     <div class="content">
+      <%= render partial: 'layouts/page_header' %>
+      <%= render partial: 'layouts/mid_navagation' %>
+      <div class="body">
+        <%= yield :layout %>
+      </div>
+    </div>
+  </body>
 </html>
