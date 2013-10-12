@@ -19,4 +19,7 @@ describe Mod do
     @mod = @version.mod
     @mod.last_version.should eql @version
   end
+  it "should require a screenshot" do
+    should validate_presence_of :screenshot
+  end
 end

@@ -10,4 +10,8 @@ describe Pack do
   it "should require a unique name" do
     should validate_uniqueness_of :title
   end
+  it "should require a screenshot on pack" do
+    Fabricate :pack
+    should validate_presence_of :screenshot
+  end
 end
