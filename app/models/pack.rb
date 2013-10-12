@@ -1,6 +1,8 @@
 class Pack < ActiveRecord::Base
   validates :user_id, presence: true
   validates :title, presence: true, uniqueness: true
+  validates :screenshot, presence: true
+  mount_uploader :screenshot, ScreenshotUploader
   belongs_to :user
   after_create :set_author
 private
