@@ -13,37 +13,21 @@
 #
 #    You should have received a copy of the GNU General Public License
 #    along with coteyr_pack.  If not, see <http://www.gnu.org/licenses/>.
-class ModsController < ApplicationController
+class CategoriesController < ApplicationController
   include Restful
   def initialize
     super
-    @skope = "Mod"
-    @klass =  Mod
+    @skope = "Category"
+    @klass =  Category
   end
   before_filter :set_page_title
-  before_filter :find_categories, only: [:new, :create, :update, :edit]
-  def index
-    conditions = {}
-    conditions.merge!({user_id: params[:user_id]}) if params[:user_id]
-    conditions.merge!({category_id: params[:category_id]}) if params[:category_id]
-    @mods = Mod.where(conditions)
-    respond_to do |format|
-      format.html {}
-      format.json {
-        render json: @mods.to_json(include: ['last_version', :category] )
-      }
-    end
-  end
 private
   def set_page_title
-    @page_title = 'Mods'
+    @page_title = 'Categories'
     @page_icon = 'font-list-ul'
   end
   def allowed_params
-    params.require :mod
-    params.permit mod: [:name, :description, :user_id, :screenshot, :screenshot_cache, :category_id]
-  end
-  def find_categories
-    @categories = Category.find :all
+    params.require(:category)
+    params.permit(category: [:id, :name, :description])
   end
 end
