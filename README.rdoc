@@ -22,8 +22,13 @@ First a quick note. RESTful apis require the proper accept header, content type,
 
 
 *GET* /mods - return a list of mods and the latest version of that mod
+
 *GET* /mods/:id - return the full details for that specfic mod.
+
 *GET* /mods/:id/versions - return a list of all versions of a mod.
+
 *GET* /mods?user_id=:user_id - return all mods by the user
+
 *GET* /packs - return a list of all mod packs.
+
 *GET* /users - return a list of all authors. An author is anyone that uploaded a mod or created a mod pack.
