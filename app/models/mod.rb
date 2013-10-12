@@ -4,7 +4,14 @@ class Mod < ActiveRecord::Base
   validates :user_id, presence: true
   belongs_to :user
   has_many :versions
+  after_create :set_author
   def last_version
     self.versions.last
+  end
+private
+  def set_author
+    if self.user
+      self.user.update_attribute(:author, true)
+    end
   end
 end

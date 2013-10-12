@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     end
   end
   def index
-    @users = User.find :all
+    @users = User.where(author: true)
     respond_to do |format|
       format.html{}
       format.json{

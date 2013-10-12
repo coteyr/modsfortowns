@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131012163342) do
+ActiveRecord::Schema.define(version: 20131012182455) do
 
   create_table "mods", force: true do |t|
     t.string   "name"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20131012163342) do
     t.datetime "updated_at"
     t.string   "remember_token",            limit: 40
     t.datetime "remember_token_expires_at"
+    t.boolean  "author",                                default: false
   end
 
   add_index "users", ["login"], name: "index_users_on_login", unique: true

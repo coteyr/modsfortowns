@@ -23,12 +23,5 @@ NUM=`echo "$i" | cut -d_ -f1`
 NAME=`echo "$i"`
 OPT="$OPT $NAME"
 done
-CHOICE=`zenity --title="Choose Migration" --list --text="Choose Migration" --column="Migrations" $OPT`
-if [ $CHOICE = "ALL" ]; then
-#konsole --workdir $1 --noclose -e rake db:migrate
-  gnome-terminal --window --profile=rails --command=/home/coteyr/.bin/rails-migrate.sh 'all'
-else
-#konsole --workdir $1 --noclose -e rake db:migrate VERSION=$CHOICE
-  gnome-terminal --window --profile=rails --command=/home/coteyr/.bin/rails-migrate.sh "$CHOICE"
-fi
-echo $CHOICE
+gnome-terminal --window --profile=rails --command=/home/coteyr/.bin/rails-migrate.sh 'all'
+
