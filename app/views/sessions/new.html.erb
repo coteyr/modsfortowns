@@ -1,30 +1,22 @@
-<%= form_title "Log in" %>
-<%= form_tag session_path do %>
-  <%= field_set_tag 'Login Credentials' do %>
-    <div class="text-field ">
-      <%= label_tag 'login' %>
-      <div class="input">
-        <%= text_field_tag 'login', @login %>
+<%= row do %>
+  <%= form_tag session_path, {class: 'form-horizontal span6 offset3'} do %>
+    <%= field_set_tag 'Login Credentials' do %>
+      <div class="control-group">
+        <label class="control-label">email</label>
+        <div class="controls">
+          <%= text_field_tag 'login', @login, class: 'span12' %>
+        </div>
       </div>
-    </div>
-    <div class="text-field ">
-      <%= label_tag 'password' %>
-       <div class="input">
-        <%= password_field_tag 'password', nil %>
+      <div class="control-group">
+        <label class="control-label">password</label>
+        <div class="controls">
+          <%= password_field_tag 'password', nil, class: 'span12' %>
+        </div>
       </div>
-    </div>
-    <div class="check-box-field ">
-      <%= label_tag 'remember_me', 'Remember me' %>
-      <div class="input">
-        <%= check_box_tag 'remember_me', '1', @remember_me %>
+      <div class="form-actions align-right">
+        <%= button_tag 'Login', class: 'btn btn-primary', type: 'submit' %>
       </div>
-    </div>
-    
-    <div class="submit-field ">
-      <div class="input">
-        <%= submit_tag 'Log in' %>
-      </div>
-    </div>
+    <% end %>
   <% end %>
 <% end %>
 

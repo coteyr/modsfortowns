@@ -14,14 +14,14 @@ class User < ActiveRecord::Base
 
   validates :name,  format:     { with: Authentication.name_regex, message: Authentication.bad_name_message },
                     length:     { maximum: 100 },
-                    allow_nil:  true
+                    presence: true
 
   validates :email, presence:   true,
                     uniqueness: true,
                     format:     { with: Authentication.email_regex, message: Authentication.bad_email_message },
                     length:     { within: 6..100 }
 
-  
+
 
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
@@ -43,11 +43,13 @@ class User < ActiveRecord::Base
   end
 
   def login=(value)
+    write_attribute :email, (value ? value.downcase : nil)
     write_attribute :login, (value ? value.downcase : nil)
   end
 
   def email=(value)
     write_attribute :email, (value ? value.downcase : nil)
+    write_attribute :login, (value ? value.downcase : nil)
   end
 
   protected
