@@ -32,3 +32,15 @@ First a quick note. RESTful apis require the proper accept header, content type,
 *GET* /packs - return a list of all mod packs.
 
 *GET* /users - return a list of all authors. An author is anyone that uploaded a mod or created a mod pack.
+
+
+=== Images and screen shots
+
+Screenshots and images are going to be ready to be used in a 16:9 aspect ratio. There are 4 sizes prepaired by the server.
+
+* Thumb 390x220
+* Small 845x480
+* Shot 1290x720
+* Big 1920x1280
+
+The website will use Thumb and Shot sizes most everywhere. Original files are also available via the API. With luck mod creators will upload someting akin to a 16x9 resolution image and everything will look awesome. This may cause a problem with tiny or small images being blown up so huge, but it will encourage mod authors to upload larger images.
