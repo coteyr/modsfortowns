@@ -40,7 +40,7 @@ class ScreenshotUploader < CarrierWave::Uploader::Base
   end
   version :shot do
     process :convert => 'png'
-    process resize_to_fill: [1290, 720]
+    process resize_to_fill: [1280, 720]
   end
   version :big do
     process :convert => 'png'
