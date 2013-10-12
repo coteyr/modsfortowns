@@ -19,4 +19,10 @@ describe User do
     mod = Fabricate :mod, user: user
     user.author.should eql true
   end
+  it "should set the author flag when uploadind creating a mod" do
+    user = Fabricate :user
+    user.author.should eql false
+    pack = Fabricate :pack, user: user
+    user.author.should eql true
+  end
 end
