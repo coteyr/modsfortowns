@@ -25,6 +25,7 @@ class ModsController < ApplicationController
   def index
     conditions = {}
     conditions.merge!({user_id: params[:user_id]}) if params[:user_id]
+    conditions.merge!({category_id: params[:category_id]}) if params[:category_id]
     @mods = Mod.where(conditions)
     respond_to do |format|
       format.html {}
