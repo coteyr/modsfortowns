@@ -21,6 +21,7 @@ class ModsController < ApplicationController
     @klass =  Mod
   end
   before_filter :set_page_title
+  before_filter :find_categories, only: [:new, :create, :update, :edit]
   def index
     conditions = {}
     conditions.merge!({user_id: params[:user_id]}) if params[:user_id]
@@ -28,7 +29,7 @@ class ModsController < ApplicationController
     respond_to do |format|
       format.html {}
       format.json {
-        render json: @mods.to_json(include: 'last_version')
+        render json: @mods.to_json(include: ['last_version', :category] )
       }
     end
   end
@@ -39,6 +40,9 @@ private
   end
   def allowed_params
     params.require :mod
-    params.permit mod: [:name, :description, :user_id, :screenshot, :screenshot_cache]
+    params.permit mod: [:name, :description, :user_id, :screenshot, :screenshot_cache, :category_id]
+  end
+  def find_categories
+    @categories = Category.find :all
   end
 end

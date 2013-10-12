@@ -13,21 +13,21 @@
 #
 #    You should have received a copy of the GNU General Public License
 #    along with coteyr_pack.  If not, see <http://www.gnu.org/licenses/>.
-class PacksController < ApplicationController
+class CategoriesController < ApplicationController
   include Restful
   def initialize
     super
-    @skope = "Pack"
-    @klass =  Pack
+    @skope = "Category"
+    @klass =  Category
   end
   before_filter :set_page_title
 private
   def set_page_title
-    @page_title = 'Mod Packs'
+    @page_title = 'Categories'
     @page_icon = 'font-list-ul'
   end
   def allowed_params
-    params.require(:pack)
-    params.permit(pack: [:title, :user_id, :screenshot, :screenshot_cache])
+    params.require(:category)
+    params.permit(category: [:id, :name, :description])
   end
 end

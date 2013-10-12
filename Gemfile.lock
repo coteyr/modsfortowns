@@ -8,6 +8,15 @@ GIT
       json (>= 1.7)
 
 GIT
+  remote: git://github.com/rails/activerecord-session_store.git
+  revision: 022d45b4ae9b7e862ee92ea8871c9bf4c2d93106
+  specs:
+    activerecord-session_store (0.0.1)
+      actionpack (>= 4.0.0.beta, < 5)
+      activerecord (>= 4.0.0.beta, < 5)
+      railties (>= 4.0.0.beta, < 5)
+
+GIT
   remote: git@git.coteyr.net:coteyr_pack.git
   revision: d4a71f70d695c0c390264a81db0c3842e11eef83
   specs:
@@ -198,6 +207,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-session_store!
   american_date
   ansi
   autotest

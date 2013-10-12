@@ -13,6 +13,9 @@ describe Mod do
   it "should require a user" do
     should validate_presence_of :user_id
   end
+  it "should require a category" do
+    should validate_presence_of :category_id
+  end
   it "should contain the last version" do
     @version = Fabricate :version
     @version = Fabricate :version
