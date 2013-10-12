@@ -13,3 +13,17 @@ Changes will not be accepted if the changes do not have a matching test (where a
 ===Notes on Testing
 
 I have personally formed a long and lenghty relationship with testing. This project uses pretty standard methods for testing. Testing should focus on testing models. Do not test views. It doesn't matter if code can pickup that a div is there. It only matters if users can see it. Use your eyes to test views. Controllers are a grey area. Do not double test. This means that controller tests are going to be (and should be) pretty small. DO test controllers for complex controller logic, or to debug issues. ALWAYS test models. This balance creates a code base that is well tested, catches most issues, and keeps the project moving forward.  Some people will say that this is incorrect. However I don't care. This works very well. If your not sure if you should write a test or not you should. All commits must have a passing rake run. Do not double test. If you test something on the model level then there's no need to test on the controller level.
+
+
+
+=== API Usage
+
+First a quick note. RESTful apis require the proper accept header, content type, and HTTP Verb.
+
+
+**GET** /mods - return a list of mods and the latest version of that mod
+**GET** /mods/:id - return the full details for that specfic mod.
+**GET** /mods/:id/versions - return a list of all versions of a mod.
+**GET** /mods?user_id=:user_id - return all mods by the user
+**GET** /packs - return a list of all mod packs.
+**GET** /users - return a list of all authors. An author is anyone that uploaded a mod or created a mod pack.

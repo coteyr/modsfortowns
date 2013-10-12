@@ -1,0 +1,8 @@
+<tr>
+   <td><%= version.mod.name %></td>
+   <td><%= version.number %></td>
+   <td>
+      <%= link_to 'edit', edit_mod_version_path(@mod, version), class: 'btn btn-info' %>
+      <%= link_to 'view', mod_version_path(@mod, version), class: 'btn btn-info' %>
+   </td>
+</tr>

@@ -1,4 +1,9 @@
 Modsfortowns::Application.routes.draw do
+
+  resources 'mods' do
+    resources 'versions'
+  end
+  resources 'packs'
   resources :users
   resource :session, only: [:new, :create, :destroy]
   get 'signup' => 'users#new', as: :signup
@@ -10,7 +15,7 @@ Modsfortowns::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'mods#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

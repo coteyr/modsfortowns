@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	//===== Check all checbboxes =====//
-	
+
 	$("#select-all thead tr th:first-child input:checkbox").click(function() {
 		var checkedStatus = this.checked;
 		$("#select-all tbody tr td:first-child input:checkbox").each(function() {
@@ -15,15 +15,15 @@ $(document).ready(function() {
 					$(this).closest('table tbody tr').addClass('row-checked');
 				}
 		});
-	});	
-	
+	});
+
     $('#select-all tbody tr td:first-child input[type=checkbox]').change(function() {
         $(this).closest('tr').toggleClass("row-checked", this.checked);
 	});
 
 
 	//===== File uploader =====//
-	
+
 	$("#uploader").pluploadQueue({
 		runtimes : 'html5,html4',
 		url : 'php/upload.php',
@@ -37,7 +37,7 @@ $(document).ready(function() {
 
 
 	//===== Fancybox =====//
-	
+
 	$(".lightbox").fancybox({
 		'padding': 2
 	});
@@ -45,26 +45,26 @@ $(document).ready(function() {
 
 
 	//===== Wizards =====//
-	
+
 	$("#wizard1").formwizard({
-		formPluginEnabled: true, 
+		formPluginEnabled: true,
 		validationEnabled: false,
 		focusFirstInput : false,
 		disableUIStyles : true,
-	
+
 		formOptions :{
 			success: function(data){$("#status1").fadeTo(500,1,function(){ $(this).html("<span>Form was submitted!</span>").fadeTo(5000, 0); })},
 			beforeSubmit: function(data){$("#w1").html("<span>Form was submitted with ajax. Data sent to the server: " + $.param(data) + "</span>");},
 			resetForm: true
 		}
 	});
-	
-	$("#wizard2").formwizard({ 
+
+	$("#wizard2").formwizard({
 		formPluginEnabled: true,
 		validationEnabled: true,
 		focusFirstInput : false,
 		disableUIStyles : true,
-	
+
 		formOptions :{
 			success: function(data){$("#status2").fadeTo(500,1,function(){ $(this).html("<span>Form was submitted!</span>").fadeTo(5000, 0); })},
 			beforeSubmit: function(data){$("#w2").html("<span>Form was submitted with ajax. Data sent to the server: " + $.param(data) + "</span>");},
@@ -90,9 +90,9 @@ $(document).ready(function() {
 		    }
 		}
 	});
-	
+
 	$("#wizard3").formwizard({
-		formPluginEnabled: false, 
+		formPluginEnabled: false,
 		validationEnabled: false,
 		focusFirstInput : false,
 		disableUIStyles : true
@@ -100,8 +100,8 @@ $(document).ready(function() {
 
 
 
-	//===== File manager =====//	
-	
+	//===== File manager =====//
+
 	var elf = $('#file-manager').elfinder({
 		url : 'php/connector.php',  // connector URL (REQUIRED)
 		uiOptions : {
@@ -115,21 +115,21 @@ $(document).ready(function() {
 		},
 		contextmenu : {
 		  // Commands that can be executed for current directory
-		  cwd : ['reload', 'delim', 'info'], 
+		  cwd : ['reload', 'delim', 'info'],
 		  // Commands for only one selected file
 		  files : ['select', 'open']
 		}
-	}).elfinder('instance');	
-	
+	}).elfinder('instance');
 
-		
+
+
 	//===== Calendar =====//
-	
+
 	var date = new Date();
 	var d = date.getDate();
 	var m = date.getMonth();
 	var y = date.getFullYear();
-	
+
 	$('#calendar').fullCalendar({
 		header: {
 			left: 'prev,next',
@@ -186,17 +186,17 @@ $(document).ready(function() {
 	});
 
 
-	
+
 	//===== WYSIWYG editor =====//
-	
+
 	$("#editor").cleditor({
-		width:"100%", 
+		width:"100%",
 		height:"250px",
 		bodyStyle: "margin: 10px; font: 12px Arial,Verdana; cursor:text",
 		docType: '<!DOCTYPE html>',
 		useCSS:true
 	});
-	
+
 
 
 	 //===== Tabbed page layout tabs =====//
@@ -204,11 +204,11 @@ $(document).ready(function() {
 	$('.page-tabs a').click(function (e) {
 	  e.preventDefault();
 	  $(this).tab('show');
-	  $('#editor').cleditor()[0].refresh(); // Refreshing Cleditor 
+	  $('#editor').cleditor()[0].refresh(); // Refreshing Cleditor
 	})
-	
 
-	
+
+
 	//===== Make code pretty =====//
 
     window.prettyPrint && prettyPrint();
@@ -221,8 +221,8 @@ $(document).ready(function() {
         $(this).closest('tr').toggleClass("row-checked", this.checked);
 	});
 
-	
-	
+
+
 	//===== Pie charts =====//
 
 	$('.piechart > li > div').easyPieChart({
@@ -233,9 +233,9 @@ $(document).ready(function() {
 	   barColor: "#d07571",
 	   size: 94
     });
-	
 
-	
+
+
 	//===== Datatable =====//
 
 	oTable = $('#data-table').dataTable({
@@ -247,17 +247,17 @@ $(document).ready(function() {
 			"sLengthMenu": "<span>Show entries:</span> _MENU_"
 		}
     });
-	
+
 
 
 	//===== Autocomplete =====//
-	
+
 	var availableTags = [ "ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme" ];
 		$( ".jquery-autocomplete" ).autocomplete({
 		source: availableTags
-	});	
+	});
 
-	
+
 
 	//===== Date pickers =====//
 
@@ -268,7 +268,7 @@ $(document).ready(function() {
 		appendText: '(dd-mm-yyyy)',
 		dateFormat: 'dd-mm-yy'
 		});
-		
+
 	$('.inlinepicker').datepicker({
         inline: true,
 		showOtherMonths:true
@@ -289,14 +289,14 @@ $(document).ready(function() {
 			dates.not( this ).datepicker( "option", option, date );
 		}
 	});
-	
+
 	$( "#datepicker-icon" ).datepicker({
 		showOn: "button",
 		buttonImage: "images/icons/calendar.png",
 		buttonImageOnly: true
 	});
 
-	
+
 	$( "#slider" ).slider();
 	$( "#slider-range" ).slider({
             range: true,
@@ -309,7 +309,7 @@ $(document).ready(function() {
         });
         $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
             " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-			
+
 	$( "#slider-range-min" ).slider({
             range: "min",
             value: 37,
@@ -320,7 +320,7 @@ $(document).ready(function() {
             }
         });
         $( "#amount2" ).val( "$" + $( "#slider-range-min" ).slider( "value" ) );
-	
+
 	$( "#slider-range-max" ).slider({
             range: "max",
             min: 1,
@@ -331,7 +331,7 @@ $(document).ready(function() {
             }
         });
         $( "#amount3" ).val( $( "#slider-range-max" ).slider( "value" ) );
-		
+
 	$( "#eq > span" ).each(function() {
 		var value = parseInt( $( this ).text(), 10 );
 		$( this ).empty().slider({
@@ -341,9 +341,9 @@ $(document).ready(function() {
 			orientation: "vertical"
 		});
 	});
-		
-		
-		
+
+
+
 	//===== Modals and dialogs =====//
 
 	$("a.bs-alert").click(function(e) {
@@ -352,21 +352,21 @@ $(document).ready(function() {
 			console.log("Alert Callback");
 		});
 	});
-	
+
 	$("a.confirm").click(function(e) {
 		e.preventDefault();
 		bootbox.confirm("Are you sure?", function(confirmed) {
 			console.log("Confirmed: "+confirmed);
 		});
 	});
-	
+
 	$("a.bs-prompt").click(function(e) {
 		e.preventDefault();
 		bootbox.prompt("What is your name?", function(result) {
 			console.log("Result: "+result);
 		});
 	});
-	
+
 	$("a.dialog").click(function(e) {
 		e.preventDefault();
 		bootbox.dialog("I am a custom dialog", [{
@@ -395,7 +395,7 @@ $(document).ready(function() {
 			}
 		}]);
 	});
-	
+
 	$("a.multiple-dialogs").click(function(e) {
 		e.preventDefault();
 
@@ -413,7 +413,7 @@ $(document).ready(function() {
 			});
 		}, 1000);
 	});
-	
+
 	$("a.dialog-close").click(function(e) {
 		e.preventDefault();
 		var box = bootbox.alert("This dialog will close in two seconds");
@@ -421,12 +421,12 @@ $(document).ready(function() {
 			box.modal('hide');
 		}, 2000);
 	});
-	
+
 	$("a.generic-modal").click(function(e) {
 		e.preventDefault();
 		bootbox.modal('<img src="http://dummyimage.com/600x400/000/fff" alt=""/>', 'Modal popup!');
 	});
-	
+
 	$("a.dynamic").click(function(e) {
 		e.preventDefault();
 		var str = $("<p>This content is actually a jQuery object, which will change in 3 seconds...</p>");
@@ -435,14 +435,14 @@ $(document).ready(function() {
 			str.html("See?");
 		}, 3000);
 	});
-	
+
 	$("a.prompt-default").click(function(e) {
 		e.preventDefault();
 		bootbox.prompt("What is your favourite JS library?", "Cancel", "OK", function(result) {
 			console.log("Result: "+result);
 		}, "Bootbox.js");
 	});
-	
+
 	$("a.onescape").click(function(e) {
 		e.preventDefault();
 		bootbox.dialog("Dismiss this dialog with the escape key...", {
@@ -527,31 +527,31 @@ $(document).ready(function() {
 			}
 		}]);
 	});
-	
-	
-	
+
+
+
 	//===== Time pickers =====//
 
 	$('#defaultValueExample, #time').timepicker({ 'scrollDefaultNow': true });
-	
+
 	$('#durationExample').timepicker({
 		'minTime': '2:00pm',
 		'maxTime': '11:30pm',
 		'showDuration': true
 	});
-	
+
 	$('#onselectExample').timepicker();
 	$('#onselectExample').on('changeTime', function() {
 		$('#onselectTarget').text($(this).val());
 	});
-	
+
 	$('#timeformatExample1').timepicker({ 'timeFormat': 'H:i:s' });
 	$('#timeformatExample2').timepicker({ 'timeFormat': 'h:i A' });
 
-	
-	
+
+
 	//===== Autogrowing textarea =====//
-	
+
 	$('.auto').autosize();
 
 
@@ -599,23 +599,23 @@ $(document).ready(function() {
 	$('.progress .bar.filled-text').progressbar({
         display_text: 1
     });
-	
+
 	$('.slim .bar').progressbar();
-	
+
 	$('.delay .bar').progressbar({
 		display_text: 1,
         transition_delay: 2000
     });
-	
+
 	$('.value .bar').progressbar({
 		display_text: 1,
         use_percentage: false
     });
-	
+
 	$('.progress .bar.centered-text').progressbar({
         display_text: 2
     });
-	
+
 	$('.progress .no-text').progressbar();
 
 
@@ -713,7 +713,7 @@ $(document).ready(function() {
 
 
 	//===== Sparklines =====//
-	
+
 	$('#balance').sparkline(
 		'html', {type: 'bar', barColor: '#db6464', height: '35px', barWidth: "5px", barSpacing: "2px", zeroAxis: "false"}
 	);
@@ -722,24 +722,24 @@ $(document).ready(function() {
 	);
 	$('#support').sparkline(
 		'html', {type: 'bar', barColor: '#4fb9f0', height: '35px', barWidth: "5px", barSpacing: "2px", zeroAxis: "false"}
-	);	
+	);
 
 
 
-	//===== Tags =====//	
-		
+	//===== Tags =====//
+
 	$('.tags').tagsInput({width:'100%'});
 
 
 
 	//===== Dual select boxes =====//
-	
+
 	$.configureBoxes();
 
 
 
 	//===== Collapsible plugin for main nav =====//
-	
+
 	$('.expand').collapsible({
 		defaultOpen: 'current',
 		cookieName: 'navAct',
@@ -758,17 +758,17 @@ $(document).ready(function() {
 
 
 	//===== Input limiter =====//
-	
+
 	$('.lim').inputlimiter({
 		limit: 100,
 		boxId: 'limitingtext',
 		boxAttach: false
 	});
-	
-	
+
+
 
 	//===== Masked input =====//
-	
+
 	$.mask.definitions['~'] = "[+-]";
 	$(".maskDate").mask("99/99/9999",{completed:function(){alert("Callback when completed");}});
 	$(".maskPhone").mask("(999) 999-9999");
@@ -786,9 +786,9 @@ $(document).ready(function() {
 	//===== Select2 dropdowns =====//
 
 	$(".select").select2();
-		
+
 	$(".selectMultiple").select2();
-		
+
 	$("#loadingdata").select2({
 		placeholder: "Enter at least 1 character",
         allowClear: true,
@@ -802,45 +802,45 @@ $(document).ready(function() {
             }
             query.callback(data);
         }
-    });		
-		
+    });
+
 	$("#maxselect").select2({ maximumSelectionSize: 3 });
-		
+
 	$("#minselect").select2({
         minimumInputLength: 2,
 		width: 'element'
     });
-	
+
 	$("#minselect2").select2({
         minimumInputLength: 2
     });
-	
+
 	$("#disableselect, #disableselect2").select2(
         "disable"
     );
-		
-		
+
+
 
 	//===== iButtons =====//
-	
+
 	$('.on_off :checkbox, .on_off :radio').iButton({
 		labelOn: "",
 		labelOff: "",
-		enableDrag: false 
+		enableDrag: false
 	});
-	
+
 	$('.on_off2 :checkbox, .on_off2 :radio').iButton({
 		labelOn: "Yeah",
 		labelOff: "Nope",
-		enableDrag: false 
+		enableDrag: false
 	});
-	
+
 	$('.yes_no :checkbox, .yes_no :radio').iButton({
 		labelOn: "On",
 		labelOff: "Off",
 		enableDrag: false
 	});
-	
+
 	$('.enabled_disabled :checkbox, .enabled_disabled :radio').iButton({
 		labelOn: "Enabled",
 		labelOff: "Disabled",
@@ -850,23 +850,23 @@ $(document).ready(function() {
 
 
 	//===== Top notification bars =====//
-	
+
 	$(".notice .close").click(function() {
 		$(this).parent().parent('.notice').fadeTo(200, 0.00, function(){ //fade
 			$(this).slideUp(200, function() { //slide up
 				$(this).remove(); //then remove from the DOM
 			});
 		});
-	});	
-	
+	});
+
 	window.setTimeout(function() {
 	    $(".closing").fadeTo(200, 0).slideUp(200, function(){
-	        $(this).remove(); 
+	        $(this).remove();
 	    });
 	}, 5000);
 
-	
-	
+
+
 	//===== Color picker =====//
 
 	$('#cp1').colorpicker({
@@ -883,24 +883,24 @@ $(document).ready(function() {
 
 
 	//===== Spinner options =====//
-	
+
 	$( "#spinner-default" ).spinner();
-	
+
 	$( "#spinner-decimal" ).spinner({
 		step: 0.01,
 		numberFormat: "n"
 	});
-	
+
 	$( "#culture" ).change(function() {
 		var current = $( "#spinner-decimal" ).spinner( "value" );
 		Globalize.culture( $(this).val() );
 		$( "#spinner-decimal" ).spinner( "value", current );
 	});
-	
+
 	$( "#currency" ).change(function() {
 		$( "#spinner-currency" ).spinner( "option", "culture", $( this ).val() );
 	});
-	
+
 	$( "#spinner-currency" ).spinner({
 		min: 5,
 		max: 2500,
@@ -908,7 +908,7 @@ $(document).ready(function() {
 		start: 1000,
 		numberFormat: "C"
 	});
-		
+
 	$( "#spinner-overflow" ).spinner({
 		spin: function( event, ui ) {
 			if ( ui.value > 10 ) {
@@ -920,7 +920,7 @@ $(document).ready(function() {
 			}
 		}
 	});
-	
+
 	$.widget( "ui.timespinner", $.ui.spinner, {
 		options: {
 			// seconds
@@ -955,7 +955,14 @@ $(document).ready(function() {
 
 
 	//===== Form elements styling =====//
-	
+
 	$(".ui-datepicker-month, .style, .dataTables_length select").uniform({ radioClass: 'choice' });
-		
+
+});
+$(document).ready(function() {
+$('.mceEditor').tinymce({
+    menubar:false,
+    statusbar: false,
+    convert_urls : true
+  });
 });

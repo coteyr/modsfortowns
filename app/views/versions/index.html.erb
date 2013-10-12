@@ -1,0 +1,18 @@
+<%= well 'version', pad: false do %>
+   <table class="table table-striped">
+   <thead>
+      <tr>
+         <th>Mod</th>
+         <th>Number</th>
+         <th></th>
+      </tr>
+   </thead>
+   <tbody>
+      <%= render partial: 'version', collection: @versions %>
+   </tbody>
+</table>
+<div class="center">
+  <%= link_to 'add new', new_mod_version_path(@mod) %>
+</div>
+
+<% end %>

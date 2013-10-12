@@ -1,0 +1,11 @@
+
+<%= render "layouts/error_messages", target: @version %>
+<%= form_for [@mod, @version], html: {multipart: true} do |f| %>
+  <%= field_set_tag 'version' do %>
+    <%= f.hidden_field :mod_id, value: @mod.id %>
+    <%= f.text_field :number %>
+    <%= f.file_field :download %>
+    <%= f.text_area :major_changes, class: 'mceEditor' %>
+    <%= f.form_actions %>
+  <% end %>
+<% end %>

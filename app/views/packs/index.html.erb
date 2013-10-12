@@ -1,0 +1,18 @@
+<%= well 'pack', pad: false do %>
+   <table class="table table-striped">
+   <thead>
+      <tr>
+         <th>Name</th>
+         <th>Author</th>
+         <th></th>
+      </tr>
+   </thead>
+   <tbody>
+      <%= render partial: 'pack', collection: @packs %>
+   </tbody>
+</table>
+<div class="center">
+  <%= link_to 'add new', new_pack_path %>
+</div>
+
+<% end %>

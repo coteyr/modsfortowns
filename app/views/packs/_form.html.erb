@@ -1,0 +1,9 @@
+
+<%= render "layouts/error_messages", target: @pack %>
+<%= form_for @pack do |f| %>
+  <%= field_set_tag 'pack' do %>
+    <%= f.text_field :title %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.form_actions %>
+  <% end %>
+<% end %>

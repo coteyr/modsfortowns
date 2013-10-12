@@ -1,0 +1,8 @@
+<tr>
+   <td><%= pack.title %></td>
+   <td><%= pack.user.name %></td>
+   <td>
+      <%= link_to 'edit', edit_pack_path(pack), class: 'btn btn-info' %>
+      <%= link_to 'view', pack_path(pack), class: 'btn btn-info' %>
+   </td>
+</tr>

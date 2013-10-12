@@ -24,5 +24,14 @@ class UsersController < ApplicationController
       render action: 'new'
     end
   end
+  def index
+    @users = User.find :all
+    respond_to do |format|
+      format.html{}
+      format.json{
+        render json: @users.to_json(except: [:email, :crypted_password, :salt, :remember_token, :remember_token_expires_at, :login ])
+      }
+    end
+  end
 
 end

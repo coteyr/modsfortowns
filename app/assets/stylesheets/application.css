@@ -20,3 +20,6 @@ form .clearfix:before, form .clearfix:after {
 .error .input-prepend .add-on,  .error .input-append .add-on { color: #b94a48; background-color: #f2dede; border-color: #b94a48; }
 
 
+.mceEditor{
+  height: 200px;
+}

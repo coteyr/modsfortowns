@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131011235252) do
+ActiveRecord::Schema.define(version: 20131012163342) do
+
+  create_table "mods", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "packs", force: true do |t|
     t.string   "title"
@@ -33,5 +41,14 @@ ActiveRecord::Schema.define(version: 20131011235252) do
   end
 
   add_index "users", ["login"], name: "index_users_on_login", unique: true
+
+  create_table "versions", force: true do |t|
+    t.string   "download"
+    t.string   "number"
+    t.integer  "mod_id"
+    t.text     "major_changes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

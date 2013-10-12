@@ -49,4 +49,6 @@
 //= require plugins/bootstrap/bootstrap-colorpicker.js
 //= require functions/custom.js
 //= require charts/chart.js
+//= require tinymce-jquery
 //= require_tree .
+

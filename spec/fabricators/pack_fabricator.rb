@@ -1,4 +1,4 @@
 Fabricator(:pack) do
-  title "Sample Mod Pack"
+  title { sequence(:name) {|i| "pack name #{i}" } }
   user
 end

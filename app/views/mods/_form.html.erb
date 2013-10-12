@@ -1,0 +1,10 @@
+
+<%= render "layouts/error_messages", target: @mod %>
+<%= form_for @mod do |f| %>
+  <%= field_set_tag 'mod' do %>
+    <%= f.text_field :name %>
+    <%= f.text_area :description, class: 'mceEditor' %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.form_actions %>
+  <% end %>
+<% end %>

@@ -1,0 +1,8 @@
+<tr>
+   <td><%= mod.name %></td>
+   <td><%= mod.user.name %></td>
+   <td>
+      <%= link_to 'edit', edit_mod_path(mod), class: 'btn btn-info' %>
+      <%= link_to 'view', mod_path(mod), class: 'btn btn-info' %>
+   </td>
+</tr>

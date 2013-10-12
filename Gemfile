@@ -11,6 +11,8 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jbuilder', '~> 1.2'
 gem 'protected_attributes'
+gem 'tinymce-rails'
+gem 'carrierwave', :git => 'git://github.com/jnicklas/carrierwave.git'
 
 group :development, :test do
   gem 'sqlite3', require: 'sqlite3'

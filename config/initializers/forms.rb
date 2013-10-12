@@ -22,6 +22,7 @@
 module ActionView::Helpers::FormHelper
   def form_for(record, options = {}, &block)
     raise ArgumentError, "Missing block" unless block_given?
+    html_options = options[:html] ||= {}
     size = options.delete(:size) if options[:size]
     offset = options.delete(:offset) if options[:offset]
     size ||= FORM_SIZE
@@ -34,19 +35,21 @@ module ActionView::Helpers::FormHelper
       object      = nil
     else
       object      = record.is_a?(Array) ? record.last : record
-      object_name = options[:as] || ActiveModel::Naming.param_key(object)
-      apply_form_for_options!(record, options)
+      raise ArgumentError, "First argument in form cannot contain nil or be empty" unless object
+      object_name = options[:as] || model_name_from_record_or_class(object).param_key
+      apply_form_for_options!(record, object, options)
     end
 
-    options[:html][:remote] = options.delete(:remote) if options.has_key?(:remote)
-    options[:html][:method] = options.delete(:method) if options.has_key?(:method)
-    options[:html][:authenticity_token] = options.delete(:authenticity_token)
+    html_options[:data]   = options.delete(:data)   if options.has_key?(:data)
+    html_options[:remote] = options.delete(:remote) if options.has_key?(:remote)
+    html_options[:method] = options.delete(:method) if options.has_key?(:method)
+    html_options[:authenticity_token] = options.delete(:authenticity_token)
 
-    builder = options[:parent_builder] = instantiate_builder(object_name, object, options, &block)
+    builder = instantiate_builder(object_name, object, options)
     output  = capture(builder, &block)
-    default_options = builder.multipart? ? { :multipart => true } : {}
+    html_options[:multipart] ||= builder.multipart?
     to_return = '<div class="row-fluid">'
-    to_return += form_tag(options.delete(:url) || {}, default_options.merge!(options.delete(:html))) { output }
+    to_return += form_tag(options[:url] || {}, html_options) { output }
     to_return += '</div>'
     to_return.html_safe
   end
