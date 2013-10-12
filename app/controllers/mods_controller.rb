@@ -39,6 +39,6 @@ private
   end
   def allowed_params
     params.require :mod
-    params.permit mod: [:name, :description, :user_id]
+    params.permit mod: [:name, :description, :user_id, :screenshot, :screenshot_cache]
   end
 end
