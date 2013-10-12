@@ -1,5 +1,6 @@
 Modsfortowns::Application.routes.draw do
 
+  resources 'categories'
   resources 'mods' do
     resources 'versions'
   end

@@ -28,6 +28,6 @@ private
   end
   def allowed_params
     params.require(:pack)
-    params.permit(pack: [:title, :user_id])
+    params.permit(pack: [:title, :user_id, :screenshot, :screenshot_cache])
   end
 end

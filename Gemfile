@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'protected_attributes'
 gem 'tinymce-rails'
 gem 'carrierwave', :git => 'git://github.com/jnicklas/carrierwave.git'
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
 group :development, :test do
   gem 'sqlite3', require: 'sqlite3'

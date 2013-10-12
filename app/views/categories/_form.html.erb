@@ -1,0 +1,9 @@
+
+<%= render "layouts/error_messages", target: @category %>
+<%= form_for @category do |f| %>
+  <%= field_set_tag 'category' do %>
+    <%= f.text_field :name %>
+    <%= f.text_area :description, class: 'mceEditor' %>
+    <%= f.form_actions %>
+  <% end %>
+<% end %>
