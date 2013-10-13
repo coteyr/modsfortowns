@@ -2,6 +2,7 @@ class Pack < ActiveRecord::Base
   validates :user_id, presence: true
   validates :title, presence: true, uniqueness: true
   validates :screenshot, presence: true
+  validates :status, presence: true, inclusion: {in: ['Concept', 'Developement', 'Complete', 'Inactive']}
   mount_uploader :screenshot, ScreenshotUploader
   belongs_to :user
   after_create :set_author

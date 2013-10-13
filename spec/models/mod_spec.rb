@@ -25,4 +25,10 @@ describe Mod do
   it "should require a screenshot" do
     should validate_presence_of :screenshot
   end
+    it "should require a status" do
+    should validate_presence_of :status
+  end
+  it "should require a valid status" do
+    should ensure_inclusion_of(:status).in_array(%w[Concept Developement Complete Inactive])
+  end
 end

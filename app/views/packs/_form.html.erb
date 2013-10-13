@@ -3,6 +3,7 @@
 <%= form_for @pack do |f| %>
   <%= field_set_tag 'pack' do %>
     <%= f.text_field :title %>
+    <%= f.select :status, ['Concept', 'Developement', 'Complete', 'Inactive'] %>
     <%= f.file_field :screenshot %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.form_actions %>
