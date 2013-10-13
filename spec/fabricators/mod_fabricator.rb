@@ -4,4 +4,5 @@ Fabricator(:mod) do
   user
   category
   screenshot File.open(Rails.root.join('spec/fixtures/test.png'))
+  status "Complete"
 end
