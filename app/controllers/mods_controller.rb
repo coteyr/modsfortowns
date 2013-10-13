@@ -41,7 +41,7 @@ private
   end
   def allowed_params
     params.require :mod
-    params.permit mod: [:name, :description, :user_id, :screenshot, :screenshot_cache, :category_id]
+    params.permit mod: [:name, :description, :user_id, :screenshot, :screenshot_cache, :category_id, :status]
   end
   def find_categories
     @categories = Category.find :all
