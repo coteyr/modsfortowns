@@ -26,6 +26,7 @@ class ModsController < ApplicationController
     conditions = {}
     conditions.merge!({user_id: params[:user_id]}) if params[:user_id]
     conditions.merge!({category_id: params[:category_id]}) if params[:category_id]
+    conditions.merge!({status: 'Complete'}) if params[:complete] and params[:complete].to_i == 1
     @mods = Mod.where(conditions)
     respond_to do |format|
       format.html {}

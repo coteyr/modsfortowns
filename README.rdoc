@@ -31,7 +31,9 @@ First a quick note. RESTful apis require the proper accept header, content type,
 
 *GET* /mods?category_id=:category_id - return all mods in a category.
 
-_Note:_ search terms can generally be combined. To find all mods by user_id in category_id you can do /mods?category_id=:category_id&user_id=:user_id
+*GET* /mods?complete=1 - return only completed mods
+
+_Note:_ search terms can generally be combined. To find all mods by user_id in category_id you can do /mods?category_id=:category_id&user_id=:user_id&complete=1
 
 *GET* /packs - return a list of all mod packs.
 

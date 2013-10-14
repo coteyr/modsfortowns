@@ -16,10 +16,10 @@
 
 #setting file for deployment
 Capistrano::Configuration.instance(:must_exist).load do
-  set :application, "app-name"
+  set :application, "modsfortowns"
   set :use_sudo, false
-  set :user, "username"
-  set :password, 'password'
-  set :domain, "www.site.com"
-  set :repository,  "git repository"
+  set :user, "modsfortowns"
+  set :password, ''
+  set :domain, "modsfortowns.com"
+  set :repository,  "https://github.com/coteyr/modsfortowns.git"
 end

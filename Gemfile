@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'capistrano'
+gem 'capistrano', '~> 2.15'
 gem 'capistrano-ext'
+gem 'rvm-capistrano'
 gem 'rmagick', require: 'RMagick'
 gem "jquery-rails"
 gem 'coteyr_pack', git: "git@git.coteyr.net:coteyr_pack.git"

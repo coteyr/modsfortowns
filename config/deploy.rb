@@ -22,10 +22,17 @@ set :git_enable_submodules, true
 require File.expand_path('../deploy-settings.rb', __FILE__)
 require File.expand_path('../deploy-custom.rb', __FILE__)
 require 'capistrano/ext/multistage'
+require "rvm/capistrano"
 default_run_options[:pty] = true
 set :scm, "git"
 ssh_options[:forward_agent] = true
 #Paths
+
+set :rvm_ruby_string, :local               # use the same ruby as used locally for deployment
+set :rvm_autolibs_flag, "read-only"        # more info: rvm help autolibs
+before 'deploy:setup', 'rvm:install_rvm'   # install RVM
+before 'deploy:setup', 'rvm:install_ruby'  # install Ruby and create gemset, OR:
+before 'deploy:setup', 'rvm:create_gemset' # only create gemset
 
 # If you are using Passenger mod_rails uncomment this:
 # if you're still using the script/reapear helper you will need
@@ -79,5 +86,12 @@ namespace :deploy do
     end
   end
 end
+namespace :rvm do
+  task :trust_rvmrc do
+    run "rvm rvmrc trust #{release_path}"
+  end
+end
+
+after "deploy", "rvm:trust_rvmrc"
 #after :deploy, "passenger:restart"
 
