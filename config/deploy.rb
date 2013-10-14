@@ -80,6 +80,7 @@ namespace :deploy do
       from = source.next_revision(current_revision)
       if capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ | wc -l").to_i > 0
         run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
+        run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} non_digest}
       else
         logger.info "Skipping asset pre-compilation because there were no asset changes"
       end
@@ -92,6 +93,8 @@ namespace :rvm do
   end
 end
 
+
+after "deploy", "non_digested"
 after "deploy", "rvm:trust_rvmrc"
 #after :deploy, "passenger:restart"
 
