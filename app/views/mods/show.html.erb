@@ -1,4 +1,51 @@
-<div class="mod">
-  <%= @mod.id %>
-  <%= button 'add version', new_mod_version_path(@mod) %>
-</div>
+<%= row do %>
+  <%= well 'Screenshot', size: 6, pad: false do %>
+    <%= image_tag @mod.screenshot.shot.url, class: 'span12' %>
+    <div class="clear">
+      <p class="center">
+        <%= button 'view full size', @mod.screenshot.big.url, type: 'info' %>
+      </p>
+    </div>
+  <% end %>
+  <%= well 'Details', size: 6 do %>
+    <div style="min-height: 334px">
+      <dl class="dl-horizontal">
+        <dt>Name</dt>
+        <dd><%= @mod.name %></dd>
+        <dt>Author</dt>
+        <dd><%= @mod.user.name %></dd>
+        <dt>First Uploaded</dt>
+        <dd><%= time_ago_in_words @mod.created_at %> ago</dd>
+        <dt>Last updated</dt>
+        <dd><%= time_ago_in_words @mod.updated_at %> ago</dd>
+        <dt>Versions</dt>
+        <dd><%= @mod.versions.count %></dd>
+        <dt>Latest Version</dt>
+        <dd><%= @mod.last_version.number %></dd>
+        <dt>Included In Packs</dt>
+        <dd>0</dd>
+        <dt>Populatity Rating</dt>
+        <dd>0</dd>
+      </dl>
+      <p class="center">
+        <%= button 'Download Now', @mod.last_version.download.url, type: 'success', icon: 'icon-download'  %>
+      </p>
+      <p class="center">
+        <%= button 'View Old Versions', mod_versions_path(@mod), type: 'info' %>
+      </p>
+    </div>
+  <% end %>
+<% end %>
+<%= row do %>
+  <%= well 'Description', size: 8 do %>
+    <%= @mod.description.html_safe %>
+  <% end %>
+  <%= well 'Changelog', size: 4 do %>
+    <dl>
+      <%= render partial: 'version', collection: @mod.versions %>
+    </dl>
+  <% end %>
+<% end %>
+
+
+

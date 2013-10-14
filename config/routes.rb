@@ -1,5 +1,6 @@
 Modsfortowns::Application.routes.draw do
 
+  resources 'infos'
   resources 'categories'
   resources 'mods' do
     resources 'versions'
@@ -16,7 +17,7 @@ Modsfortowns::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'mods#index'
+  root 'infos#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

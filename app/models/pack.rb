@@ -6,6 +6,11 @@ class Pack < ActiveRecord::Base
   mount_uploader :screenshot, ScreenshotUploader
   belongs_to :user
   after_create :set_author
+  scope :latest, order: 'updated_at desc'
+  scope :hottest, order: 'updated_at desc'
+  def tag
+    "#{self.title} by #{self.user.name}"
+  end
 private
   def set_author
     if self.user

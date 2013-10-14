@@ -10,8 +10,13 @@ class Mod < ActiveRecord::Base
   belongs_to :category
   has_many :versions
   after_create :set_author
+  scope :latest, order: 'updated_at desc'
+  scope :hottest, order: 'updated_at desc'
   def last_version
     self.versions.last
+  end
+  def tag
+    "#{self.name} by #{self.user.name}"
   end
 private
   def set_author

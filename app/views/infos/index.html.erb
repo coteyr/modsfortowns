@@ -1,0 +1,55 @@
+<%= row do %>
+  <%= well "Mods For Towns", size: 6 do %>
+    <div style="min-height: 406px">
+    <p>Mods for Towns is dedicated to providing an easy to use location for mod authors and players alike to share mods and mod packs.</p>
+    <p>The best way to get mods or mod packs is to use the Mod Updater from <%= link_to 'JackPS9', 'http://www.townsgame.com/forums/memberlist.php?mode=viewprofile&u=4484' %> The updater makes sure that your mods and mod packs are always the latest version and provides you with a way to download large and complicated mod packs with no hassle.</p>
+    <%= seperator %>
+    <p> Don't know what Towns is? It's a great game availble on <%= link_to 'Steam', 'http://store.steampowered.com/app/221020/?snr=1_7_15__13' %>, at <%= link_to 'the offical wesite', 'http://www.townsgame.com/', type: 'primary' %> and many other places. It's something like a cross between Sim City, Diablo, Dwarf Fortress, and Warcraft. It's complicated, fun, well worth it's price. I suggest trying the free demo on steam.</p>
+    <p class="center">
+      <%= button 'Buy Towns on Steam', 'http://store.steampowered.com/app/221020/?snr=1_7_15__13',type: 'primary' %>
+    </p>
+    <p class="center">
+      <%= button 'Try Towns for Free', 'http://store.steampowered.com/app/221020/?snr=1_7_15__13', type: 'success' %>
+    </p>
+    <p class="center">
+      <%= button 'Get Towns from Townsgame.com', 'http://www.townsgame.com/', type: 'primary' %>
+    </p>
+    </div>
+  <% end %>
+  <div class="span6">
+    <%= row do %>
+    <%= well 'Latest Mods', size: 6 do %>
+      <div style="height: 142px;">
+        <ul class="arrow-list">
+          <%= render partial: 'mod', collection: @latest_mods %>
+        </ul>
+      </div>
+    <% end %>
+    <%= well 'Latest Mod Packs', size: 6 do %>
+      <div style="height: 142px;">
+        <ul class="arrow-list">
+          <%= render partial: 'pack', collection: @latest_packs %>
+        </ul>
+      </div>
+    <% end %>
+    <% end %>
+    <%= seperator type: 'squared' %>
+    <div style="margin-bottom: 20px" %></div>
+    <%= row do %>
+    <%= well 'Hottest Mods', size: 6 do %>
+      <div style="height: 142px;">
+        <ul class="arrow-list">
+          <%= render partial: 'mod', collection: @hottest_mods %>
+        </ul>
+      </div>
+    <% end %>
+    <%= well 'Hottest Mod Packs', size: 6 do %>
+      <div style="height: 142px;">
+        <ul class="arrow-list">
+          <%= render partial: 'pack', collection: @hottest_packs %>
+        </ul>
+      </div>
+    <% end %>
+    <% end %>
+  </div>
+<% end %>

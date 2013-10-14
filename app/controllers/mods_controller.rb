@@ -36,8 +36,10 @@ class ModsController < ApplicationController
   end
 private
   def set_page_title
-    @page_title = 'Mods'
-    @page_icon = 'font-list-ul'
+    mod = Mod.find params[:id] if params[:id]
+    @page_title = mod.name if mod
+    @page_title ||= 'Mods'
+    @page_icon = 'font-eye-open'
   end
   def allowed_params
     params.require :mod
