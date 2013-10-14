@@ -80,10 +80,12 @@ namespace :deploy do
       from = source.next_revision(current_revision)
       if capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ | wc -l").to_i > 0
         run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
-        run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} non_digest}
       else
         logger.info "Skipping asset pre-compilation because there were no asset changes"
       end
+      run "cp -R #{release_path}/app/assets/images/* #{release_path}/public/assets/"
+        run "cp -R #{release_path}/app/assets/stylesheets/* #{release_path}/public/assets/"
+        run "cp -R #{release_path}/app/assets/javascripts/* #{release_path}/public/assets/"
     end
   end
 end
