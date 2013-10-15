@@ -84,8 +84,10 @@ namespace :deploy do
         logger.info "Skipping asset pre-compilation because there were no asset changes"
       end
       run "cp -R #{release_path}/app/assets/images/* #{release_path}/public/assets/"
-        run "cp -R #{release_path}/app/assets/stylesheets/* #{release_path}/public/assets/"
-        run "cp -R #{release_path}/app/assets/javascripts/* #{release_path}/public/assets/"
+      run "cp -R #{release_path}/app/assets/stylesheets/* #{release_path}/public/assets/"
+      run "cp -R #{release_path}/app/assets/javascripts/* #{release_path}/public/assets/"
+      run "cp  #{release_path}/public/assets/application-*.css #{release_path}/public/assets/application.css"
+      run "cp  #{release_path}/public/assets/application-*.js #{release_path}/public/assets/application.js"
     end
   end
 end
@@ -94,9 +96,13 @@ namespace :rvm do
     run "rvm rvmrc trust #{release_path}"
   end
 end
+namespace :db do
+  task :copy_config do
+    run "cp  ~/database.yml #{release_path}/config/database.yml"
+  end
+end
 
-
-after "deploy", "non_digested"
+after "deploy:update_code","db:copy_config"
 after "deploy", "rvm:trust_rvmrc"
 #after :deploy, "passenger:restart"
 
