@@ -1,3 +1,11 @@
-<div class="pack">
-  <%= @pack.id %>
-</div>
+<%= row do %>
+  <%= well 'Screenshot', size: 6, pad: false do %>
+    <%= image_tag @pack.screenshot.shot.url, class: 'span12' %>
+    <div class="clear">
+      <p class="center">
+        <%= button 'view full size', @pack.screenshot.big.url, type: 'info' %>
+      </p>
+    </div>
+  <% end %>
+<% end %>
+<h2>This section of the site is incomplete </h2>

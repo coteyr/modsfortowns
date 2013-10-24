@@ -13,7 +13,7 @@ class Mod < ActiveRecord::Base
   scope :latest, order: 'updated_at desc'
   scope :hottest, order: 'updated_at desc'
   def last_version
-    self.versions.last
+    self.versions.last if self.versions.length > 0
   end
   def tag
     "#{self.name} by #{self.user.name}"

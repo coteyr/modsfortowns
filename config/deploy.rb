@@ -54,8 +54,8 @@ namespace :passenger do
     end
     desc "Create Symlink for Passenger"
     task :linkin do
-        run "rm -rf #{public_path}"
-        run "ln -s #{current_path}/public #{public_path}"
+        run "rm -rf #{public_path}/uploads"
+        run "ln -s /home/modsfortowns/web/uploads/ #{public_path}/uploads"
     end
 end
 namespace :sass do
@@ -104,5 +104,6 @@ end
 
 after "deploy:update_code","db:copy_config"
 after "deploy", "rvm:trust_rvmrc"
+after "deploy", "passnger:linkin"
 #after :deploy, "passenger:restart"
 

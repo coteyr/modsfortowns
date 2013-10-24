@@ -21,18 +21,20 @@
         <dt>Versions</dt>
         <dd><%= @mod.versions.count %></dd>
         <dt>Latest Version</dt>
-        <dd><%= @mod.last_version.number %></dd>
+        <dd><% if @mod.versions.length > 0 %><%= @mod.last_version.number %><% end %></dd>
         <dt>Included In Packs</dt>
         <dd>0</dd>
         <dt>Populatity Rating</dt>
         <dd>0</dd>
       </dl>
-      <p class="center">
-        <%= button 'Download Now', @mod.last_version.download.url, type: 'success', icon: 'icon-download'  %>
-      </p>
-      <p class="center">
-        <%= button 'View Old Versions', mod_versions_path(@mod), type: 'info' %>
-      </p>
+      <% if @mod.versions.length > 0 %>
+        <p class="center">
+          <%= button 'Download Now', @mod.last_version.download.url, type: 'success', icon: 'icon-download'  %>
+        </p>
+        <p class="center">
+          <%= button 'View Old Versions', mod_versions_path(@mod), type: 'info' %>
+        </p>
+      <% end %>
     </div>
   <% end %>
 <% end %>
