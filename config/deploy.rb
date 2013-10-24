@@ -83,11 +83,11 @@ namespace :deploy do
       else
         logger.info "Skipping asset pre-compilation because there were no asset changes"
       end
-      run "cp -R #{release_path}/app/assets/images/* #{release_path}/public/assets/"
-      run "cp -R #{release_path}/app/assets/stylesheets/* #{release_path}/public/assets/"
-      run "cp -R #{release_path}/app/assets/javascripts/* #{release_path}/public/assets/"
-      run "cp  #{release_path}/public/assets/application-*.css #{release_path}/public/assets/application.css"
-      run "cp  #{release_path}/public/assets/application-*.js #{release_path}/public/assets/application.js"
+      #run "cp -R #{release_path}/app/assets/images/* #{release_path}/public/assets/"
+      #run "cp -R #{release_path}/app/assets/stylesheets/* #{release_path}/public/assets/"
+      #run "cp -R #{release_path}/app/assets/javascripts/* #{release_path}/public/assets/"
+      #run "cp  #{release_path}/public/assets/application-*.css #{release_path}/public/assets/application.css"
+      #run "cp  #{release_path}/public/assets/application-*.js #{release_path}/public/assets/application.js"
     end
   end
 end

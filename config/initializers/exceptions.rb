@@ -15,8 +15,8 @@
 #    along with coteyr_pack.  If not, see <http://www.gnu.org/licenses/>.
 
 Modsfortowns::Application.config.middleware.use ExceptionNotifier,
-    email_prefix: "[EXCEPTION][APP NAME] ",
+    email_prefix: "[EXCEPTION][MODS FOR TOWNS] ",
     project_name: "Project",
     project_tracker: "Exceptions",
-    sender_address: %{"notifier" <notifier@example.com>},
-    exception_recipients: %w{exceptions@example.com}
+    sender_address: %{"notifier" <coteyr@coteyr.net>},
+    exception_recipients: %w{modsfortowns@coteyr.net}

@@ -18,9 +18,9 @@ GIT
 
 GIT
   remote: git@git.coteyr.net:coteyr_pack.git
-  revision: d4a71f70d695c0c390264a81db0c3842e11eef83
+  revision: 6d646b678ae1b3d720b74dc2a06f636a869bef0f
   specs:
-    coteyr_pack (3.2.6)
+    coteyr_pack (4.0.0)
 
 GEM
   remote: https://rubygems.org/
