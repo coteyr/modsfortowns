@@ -34,6 +34,10 @@
         <p class="center">
           <%= button 'View Old Versions', mod_versions_path(@mod), type: 'info' %>
         </p>
+      <% else %>
+        <p class="center">
+          <%= button 'Upload a Version', new_mod_version_path(@mod), type: 'info' %>
+        </p>
       <% end %>
     </div>
   <% end %>
